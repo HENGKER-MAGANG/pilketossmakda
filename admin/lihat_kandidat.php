@@ -10,11 +10,19 @@ if (!isset($_SESSION['admin'])) {
 // Hapus kandidat jika tombol hapus ditekan
 if (isset($_GET['hapus'])) {
   $id = $_GET['hapus'];
+
+  // Hapus dulu suara terkait
+  $stmt = $pdo->prepare("DELETE FROM votes WHERE osis_id = ? OR mpk_id = ?");
+  $stmt->execute([$id, $id]);
+
+  // Hapus kandidat
   $stmt = $pdo->prepare("DELETE FROM candidates WHERE id = ?");
   $stmt->execute([$id]);
+
   header("Location: kandidat.php");
   exit;
 }
+
 
 // Proses update kandidat dari modal
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_id'])) {
@@ -98,7 +106,7 @@ $data = $pdo->query($query)->fetchAll();
           </div>
         </div>
 
-        <!-- Modal Edit Kandidat -->
+        <!-- Modal Edit KandiACACdat -->
 <div id="modal-<?= $row['id'] ?>" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
   <div class="bg-white w-full max-w-lg rounded-xl shadow-lg p-6 border border-gray-200">
     <div class="flex items-center gap-2 mb-4">
