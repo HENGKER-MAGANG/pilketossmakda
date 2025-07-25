@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($user && password_verify($password, $user['password'])) {
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['nama'] = $user['nama'];
-    $_SESSION['kelas'] = $user['kelas'];
+    $_SESSION['kelas_id'] = $user['kelas_id'];
     $_SESSION['sudah_memilih'] = $user['sudah_memilih'];
     header("Location: ../siswa/index.php");
     exit;
