@@ -1,10 +1,10 @@
 <?php
 // config/db.php
 
-$host = 'localhost';
+$host = 'z8wokk08g8cgg4swc80c4gcc'; // host dari Coolify
 $db   = 'pilketos';
-$user = 'root';
-$pass = ''; // Jika pakai XAMPP default kosong
+$user = 'pilketos';
+$pass = 'pilketos123';
 
 try {
   $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
