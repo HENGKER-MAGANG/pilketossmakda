@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 $nama = $_SESSION['nama'];
-$kelas = $_SESSION['kelas'];
+$kelas = $_SESSION['kelas_id'];
 $sudah_memilih = $_SESSION['sudah_memilih'];
 
 $osis = $pdo->query("SELECT * FROM candidates WHERE jenis = 'osis'")->fetchAll();
@@ -58,7 +58,7 @@ $mpk  = $pdo->query("SELECT * FROM candidates WHERE jenis = 'mpk'")->fetchAll();
                 <input type="radio" name="osis_id" value="<?= $o['id']; ?>" required class="mb-3">
                 <img src="../assets/img/kandidat/<?= $o['foto']; ?>" alt="<?= $o['nama']; ?>" class="w-full h-40 object-cover rounded-lg mb-3">
                 <h3 class="font-bold text-blue-800 text-lg"><?= $o['nama']; ?></h3>
-                <p class="text-sm text-gray-600 mb-1"><?= $o['kelas']; ?></p>
+                <p class="text-sm text-gray-600 mb-1"><?= $o['kelas_id']; ?></p>
                 <p class="text-sm text-gray-700"><strong>Visi:</strong> <?= $o['visi']; ?></p>
                 <p class="text-sm text-gray-700 mt-1"><strong>Misi:</strong> <?= $o['misi']; ?></p>
               </label>
@@ -73,7 +73,7 @@ $mpk  = $pdo->query("SELECT * FROM candidates WHERE jenis = 'mpk'")->fetchAll();
                 <input type="radio" name="mpk_id" value="<?= $m['id']; ?>" required class="mb-3">
                 <img src="../assets/img/kandidat/<?= $m['foto']; ?>" alt="<?= $m['nama']; ?>" class="w-full h-40 object-cover rounded-lg mb-3">
                 <h3 class="font-bold text-green-800 text-lg"><?= $m['nama']; ?></h3>
-                <p class="text-sm text-gray-600 mb-1"><?= $m['kelas']; ?></p>
+                <p class="text-sm text-gray-600 mb-1"><?= $m['kelas_id']; ?></p>
                 <p class="text-sm text-gray-700"><strong>Visi:</strong> <?= $m['visi']; ?></p>
                 <p class="text-sm text-gray-700 mt-1"><strong>Misi:</strong> <?= $m['misi']; ?></p>
               </label>
